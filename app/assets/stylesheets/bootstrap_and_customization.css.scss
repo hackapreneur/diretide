@@ -1,0 +1,29 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster|Damion|Oxygen);
+
+$navbar-default-bg: #c0392b;
+$font-family-sans-serif:                'Oxygen', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$navbar-default-link-color: #ecf0f1;
+$brand-primary: #c0392b;
+$jumbotron-bg: #bdc3c7;
+
+$grid-gutter-width: 5px;
+
+$jumbotron-padding:10px;
+
+
+
+@import 'bootstrap';
+
+.center {
+  text-align: center;
+}
+
+#mBody{
+  margin-top:70px;
+}
+
+.navbar-brand {
+  font-size: 36px;
+  font-family: 'Lobster', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+

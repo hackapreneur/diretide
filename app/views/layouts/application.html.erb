@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Solo - Creative Learning Platform</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+<body>
+
+<div class="snap-drawers" style="position: absolute">
+
+  <div id="lContent" class="snap-drawer snap-drawer-left">
+
+    <ul class="list-group">
+      <li class="list-group-item"> [USER PICTURE] [USERNAME]</li>
+      <li class="list-group-item"><span class ="glyphicon glyphicon-book"></span> My Courses</li>
+      <li class="list-group-item"><span class ="glyphicon glyphicon-eye-open"> </span> Browse</li>
+      <li class="list-group-item"><span class ="glyphicon glyphicon-road"> </span> Discover</li>
+      <li class="list-group-item"><span class ="glyphicon glyphicon-wrench"> </span> Support</li>
+      <li class="list-group-item"><span class ="glyphicon glyphicon-info-sign"> </span> About</li>
+      <li class="list-group-item"><span class ="glyphicon glyphicon-off"> </span> Logout</li>
+    </ul>
+
+
+
+    <!-- Left Drawer Content -->
+  </div>
+
+  <div id="rContent" class="snap-drawer snap-drawer-right">
+    <!-- Right Drawer Content -->
+    [USERNAME]
+    [USER IMAGE]<br>
+    [Subtitle]<br>
+    [Location]<br>
+    REP<br>
+       <br>
+    BBOY - LVL 5<br>
+    Salsa - Lvl 2<br>
+    [SHOWCASE] <br>
+
+
+
+
+
+  </div>
+
+</div>
+<div id="content" class="snap-content">
+  <div id="toolbar">
+
+
+    <%= render "layouts/header" %>
+    <!-- Toolbar Content -->
+
+  </div>
+
+  <div id="mBody" class="container">
+    <%= yield %>
+
+  </div>
+
+
+
+
+</div>
+</body>
+</html>
