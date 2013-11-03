@@ -4,7 +4,14 @@
 
 
 #headline{
-  float:right;
+   float:right;
+   color: white;
+ }
+
+#bheadline{
+  position: absolute;
+  bottom: 10px; /* adjust as desired to compensate for smaller font size */
+  right: 5px;
   color: white;
 }
 
@@ -29,4 +36,23 @@
   position: relative;
   border: 3px #000 solid;
   clear:both;
+}
+
+.circular {
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  background: url(http://link-to-your/image.jpg) no-repeat;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.vidTitle{
+  line-height:2px;
+  padding:0px;
 }

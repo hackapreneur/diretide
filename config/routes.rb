@@ -1,10 +1,12 @@
 Diretide::Application.routes.draw do
 
+  resources :products
+
   devise_for :users
   root 'pages#home'
 
   get 'marketplace' => 'pages#marketplace'
-
+  get 'marketplace/breakdancing' => 'pages#breakdancing'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

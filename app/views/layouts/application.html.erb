@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Rock Solo - Creative Learning Platform</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 </head>
 
 <body>
@@ -55,6 +57,7 @@
           <li class="list-group-item">
             <%= link_to marketplace_path, :class => "button small-button green-button" do %>
               <li class="list-group-item"><span class ="glyphicon glyphicon-book"></span> My Courses
+                <span class="badge">2</span>
           <% end %>
           </li>
 
@@ -147,27 +150,42 @@
 
   <div id="rContent" class="snap-drawer snap-drawer-right">
     <!-- Right Drawer Content -->
-
-
-    <li class="list-group-item">
+    <li align="center" class="list-group-item">
       <%= link_to edit_user_registration_path, :class => "button small-button green-button" do %>
-          <span class ="glyphicon glyphicon-off"> </span>[USERNAME]</li>
+          <h3>Justin Wu</h3>
       <% end %>
-      </li>
+      <%= link_to image_tag("/assets/profile.jpg", :border => 1,:class => "circular img-responsive" ),  edit_user_registration_path   %>
+      <br>
+      Seattle, WA
+    </li>
 
-      <li class="list-group-item">
-        <%= link_to edit_user_registration_path, :class => "button small-button green-button" do %>
-            <span class ="glyphicon glyphicon-off"> </span> [USER PICTURE]</li>
-        <% end %>
-      </li>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Achievements</div>
+      <div class="panel-body">
 
-    [Subtitle]<br>
-    [Location]<br>
-    REP<br>
-       <br>
-    BBOY - LVL 5<br>
-    Salsa - Lvl 2<br>
-    [SHOWCASE] <br>
+        Breakdancing - Level 6
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">40% Complete (success)</span>
+          </div>
+        </div>
+
+        Salsa - Level 2
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+              <span class="sr-only">40% Complete (success)</span>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="panel-heading">Showcase</div>
+      <div class="panel-body container">
+        <iframe width="853" height="480" src="//www.youtube.com/embed/HzEZbXX8R4I" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
 
 
 
@@ -176,11 +194,11 @@
   </div>
 
 </div>
+
 <div id="content" class="snap-content">
+  <%= render "layouts/header" %>
   <div id="toolbar">
 
-
-    <%= render "layouts/header" %>
     <!-- Toolbar Content -->
 
   </div>
@@ -208,7 +226,7 @@
             element: document.getElementById('content')
         });
 
-        var addEvent = function addEvent(element, eventName, func) {
+        var openleftside = function openleftside(element, eventName, func) {
             if (element.addEventListener) {
                 return element.addEventListener(eventName, func, false);
             } else if (element.attachEvent) {
@@ -216,11 +234,28 @@
             }
         };
 
-        addEvent(document.getElementById('open-left'), 'click', function () {
+        openleftside(document.getElementById('open-left'), 'click', function () {
             if (snapper.state().state == "left") {
                 snapper.close();
             } else {
                 snapper.open('left');
+            }
+        });
+
+
+        var openrightside = function openrightside(element, eventName, func) {
+            if (element.addEventListener) {
+                return element.addEventListener(eventName, func, false);
+            } else if (element.attachEvent) {
+                return element.attachEvent("on" + eventName, func);
+            }
+        };
+
+        openrightside(document.getElementById('open-right'), 'click', function () {
+            if (snapper.state().state == "right") {
+                snapper.close();
+            } else {
+                snapper.open('right');
             }
         });
 

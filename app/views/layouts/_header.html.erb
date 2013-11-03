@@ -1,25 +1,25 @@
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
   <div class="container">
 
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
 
-      <span class="navbar-brand" id="open-left" href="#">Rock Solo</span>
+      <%= link_to "Rock Solo", root_path, :class =>"navbar-brand" %>
+      <button type="button" class="btn btn-default lbalign" id="open-left"><span class="glyphicon glyphicon-align-left"></span></button>
+
+      <% if user_signed_in? %>
+          <button type="button" class="btn btn-default rbalign" id="open-right"><%= image_tag "/assets/profile.jpg", :height => '24', :width => '24' %></button>
+
+      <% else %>
+
+          <button type="button" class="btn btn-default rbalign" id="open-right"><span class="glyphicon glyphicon-user"></span></button>
+
+      <% end %>
+
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
 
   </div>
 </nav>
