@@ -1,3 +1,7 @@
+
+
+
+
 @import url(http://fonts.googleapis.com/css?family=Lobster|Damion|Oxygen);
 
 $navbar-default-bg: #c0392b;
@@ -25,5 +29,12 @@ $jumbotron-padding:10px;
 .navbar-brand {
   font-size: 36px;
   font-family: 'Lobster', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin: auto;
 }
+
 

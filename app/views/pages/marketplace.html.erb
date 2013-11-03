@@ -1,30 +1,5 @@
 
 
-
-<% if !user_signed_in? %>
-
-    <div class="img-overlay">
-      <%= image_tag "/assets/rocksolobanner.jpg" ,  :class => "img-responsive" %>
-      <div class="overlay">
-        <div id="headline"><h3>Discover Dance.</h3></div>
-      </div>
-
-    </div>
-<div class="jumbotron center">
-  <p>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-    <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
-  </p>
-</div>
-
- <% else %>
-
- <% end %>
-
-
-<iframe src="//player.vimeo.com/video/76752860?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-
 <div class="row">
   <div class="col-xs-6 col-md-3">
     <div class="thumbnail">
@@ -70,8 +45,5 @@
     </div>
   </div>
 </div>
-
-
-
 
 

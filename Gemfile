@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'devise', '~> 3.1.1'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

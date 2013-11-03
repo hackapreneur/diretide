@@ -15,13 +15,129 @@
   <div id="lContent" class="snap-drawer snap-drawer-left">
 
     <ul class="list-group">
-      <li class="list-group-item"> [USER PICTURE] [USERNAME]</li>
-      <li class="list-group-item"><span class ="glyphicon glyphicon-book"></span> My Courses</li>
-      <li class="list-group-item"><span class ="glyphicon glyphicon-eye-open"> </span> Browse</li>
-      <li class="list-group-item"><span class ="glyphicon glyphicon-road"> </span> Discover</li>
-      <li class="list-group-item"><span class ="glyphicon glyphicon-wrench"> </span> Support</li>
-      <li class="list-group-item"><span class ="glyphicon glyphicon-info-sign"> </span> About</li>
-      <li class="list-group-item"><span class ="glyphicon glyphicon-off"> </span> Logout</li>
+
+
+      <% if user_signed_in? %>
+      <li class="list-group-item">
+        <%= link_to edit_user_registration_path, :class => "button small-button green-button" do %>
+            <span class ="glyphicon glyphicon-off"> </span> <%= current_user.email %>
+        <% end %>
+      </li>
+
+      <li class="list-group-item">
+        <%= link_to edit_user_registration_path, :class => "button small-button green-button" do %>
+            <span class ="glyphicon glyphicon-envelope"> </span> Inbox
+        <% end %>
+      </li>
+
+      <li class="list-group-item">
+        <%= link_to edit_user_registration_path, :class => "button small-button green-button" do %>
+            <span class ="glyphicon glyphicon-user"> </span> Friends
+        <% end %>
+      </li>
+
+      <% else %>
+          <li class="list-group-item">
+            <%= link_to new_user_registration_path, :class => "button small-button green-button" do %>
+                <span class ="glyphicon glyphicon-user"> </span> Sign Up!
+            <% end %>
+          </li>
+
+
+            <li class="list-group-item">
+              <%= link_to new_user_session_path, :class => "button small-button green-button" do %>
+                  <span class ="glyphicon glyphicon-off"> </span> Login
+              <% end %>
+              </li>
+      <% end %>
+
+      <% if user_signed_in? %>
+          <li class="list-group-item">
+            <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+              <li class="list-group-item"><span class ="glyphicon glyphicon-book"></span> My Courses
+          <% end %>
+          </li>
+
+      <% else %>
+
+      <% end %>
+
+
+      <% if user_signed_in? %>
+      <li class="list-group-item">
+        <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+              <span class ="glyphicon glyphicon-eye-open"> </span> Browse
+        <% end %>
+      </li>
+
+      <% else %>
+
+          <li class="list-group-item">
+            <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+              <li class="list-group-item"><span class ="glyphicon glyphicon-eye-open"> </span> Browse</li>
+            <% end %>
+          </li>
+
+      <% end %>
+
+
+
+      <li class="list-group-item">
+        <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+            <span class ="glyphicon glyphicon-road"> </span> Discover
+        <% end %>
+      </li>
+
+
+      <li class="list-group-item">
+        <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+          <li class="list-group-item"><span class ="glyphicon glyphicon-globe"> </span> Community</li>
+      <% end %>
+      </li>
+      <li class="list-group-item">
+        <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+            <span class ="glyphicon glyphicon-calendar"> </span> Events
+        <% end %>
+      </li>
+      <li class="list-group-item">
+        <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+            <span class ="glyphicon glyphicon-camera"> </span> Livestream Seminars
+        <% end %>
+      </li>
+
+
+
+
+
+
+
+      <li class="list-group-item">
+        <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+          <li class="list-group-item"><span class ="glyphicon glyphicon-wrench"> </span> Support</li>
+        <% end %>
+      </li>
+
+      <li class="list-group-item">
+        <%= link_to marketplace_path, :class => "button small-button green-button" do %>
+          <span class ="glyphicon glyphicon-info-sign"> </span> About
+        <% end %>
+      </li>
+
+
+
+
+    <% if user_signed_in? %>
+
+      <li class="list-group-item">
+          <%= link_to destroy_user_session_path, method: :delete, :class => "button small-button green-button" do %>
+            <span class ="glyphicon glyphicon-off"> </span> Logout</li>
+          <% end %>
+      </li>
+
+    <% else %>
+
+    <% end %>
+
     </ul>
 
 
@@ -31,8 +147,20 @@
 
   <div id="rContent" class="snap-drawer snap-drawer-right">
     <!-- Right Drawer Content -->
-    [USERNAME]
-    [USER IMAGE]<br>
+
+
+    <li class="list-group-item">
+      <%= link_to edit_user_registration_path, :class => "button small-button green-button" do %>
+          <span class ="glyphicon glyphicon-off"> </span>[USERNAME]</li>
+      <% end %>
+      </li>
+
+      <li class="list-group-item">
+        <%= link_to edit_user_registration_path, :class => "button small-button green-button" do %>
+            <span class ="glyphicon glyphicon-off"> </span> [USER PICTURE]</li>
+        <% end %>
+      </li>
+
     [Subtitle]<br>
     [Location]<br>
     REP<br>
@@ -58,6 +186,11 @@
   </div>
 
   <div id="mBody" class="container">
+
+    <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
+    <% end %>
+
     <%= yield %>
 
   </div>
@@ -66,5 +199,37 @@
 
 
 </div>
+
+
+<script>
+
+    $(function() {
+        var snapper = new Snap({
+            element: document.getElementById('content')
+        });
+
+        var addEvent = function addEvent(element, eventName, func) {
+            if (element.addEventListener) {
+                return element.addEventListener(eventName, func, false);
+            } else if (element.attachEvent) {
+                return element.attachEvent("on" + eventName, func);
+            }
+        };
+
+        addEvent(document.getElementById('open-left'), 'click', function () {
+            if (snapper.state().state == "left") {
+                snapper.close();
+            } else {
+                snapper.open('left');
+            }
+        });
+
+    });
+
+    $(document).ready(function(){
+        // Target your .container, .wrapper, .post, etc.
+        $(".container").fitVids();
+    });
+</script>
 </body>
 </html>
